@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "wwwroot/scss/header.css",
+    "inputFile": "wwwroot/scss/header.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/header-control.css",
+    "inputFile": "wwwroot/scss/header-control.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/main.css",
+    "inputFile": "wwwroot/scss/main.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/history.css",
+    "inputFile": "wwwroot/scss/history.scss"
+  }
+]
