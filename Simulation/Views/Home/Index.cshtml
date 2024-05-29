@@ -1,298 +1,136 @@
-﻿<div class="wrap-content">
-    <div id="inspection-statistical" class="d-flex justify-content-between">
-        <div id="result">
-            <div id="data-chart-percent" data-percent-chart-ok="@ViewBag.PercentChartOK" data-percent-chart-ng="@ViewBag.PercentChartNG" data-percent-chart-empty="@ViewBag.PercentChartEmpty"></div>
-            <h3 class="genera-title">Result</h3>
-            <div class="d-flex justify-content-between">
-                <div class="current-tray">
-                    <h3 id="title-current-tray">Inspecting</h3>
-                    <div class="d-flex check-item">
-                        <div class="no-number">
-                            <div class="empty-row">&#8593;</div>
-                            <div class="no mb-1"></div>
-                            @for (int i = 1; i <= 20; i++)
-                            {
-                                <div class="stt">@i</div>
-                            }
-                        </div>
+﻿<div class="wrap-content" style="padding: 5px 10px;">
+    <div class="wrap-chart">
+        <div class="status-plc-system d-flex align-item-center my-1">
+            <div class="system-status" style="margin-right: 50px;">
+                <span id="label-system-status">System Status:</span>
+                <span id="value-system-status">Running</span>
+            </div>
 
-                        <div class="is-check-tray checking-tray-left">
-                            <div class="title-cam text-center">Left</div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="type-camera">Area cam 1</div>
-                                <div class="type-camera">Line cam 2</div>
-                            </div>
-                            <div class="ng-ok">
-                                <div class="d-flex justify-content-center">
-                                    <div class="d-flex flex-column left-tray">
-                                        @for (int i = 1; i <= 20; i++)
-                                        {
-                                            <span class="ok left-area-@i">Wait</span>
-                                        }
-                                    </div>
-                                    <div class="d-flex flex-column right-tray">
-                                        @for (int i = 1; i <= 20; i++)
-                                        {
-                                            <span class="ng left-line-@i">Wait</span>
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="is-check-tray checking-tray-right">
-                            <div class="title-cam text-center">Right</div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="type-camera">Area cam 3</div>
-                                <div class="type-camera">Line cam 4</div>
-                            </div>
-                            <div class="ng-ok">
-                                <div class="d-flex justify-content-center">
-                                    <div class="d-flex flex-column left-tray">
-                                        @for (int i = 1; i <= 20; i++)
-                                        {
-                                            <span class="ok right-area-@i">Wait</span>
-                                        }
-                                    </div>
-                                    <div class="d-flex flex-column right-tray">
-                                        @for (int i = 1; i <= 20; i++)
-                                        {
-                                            <span class="ng right-line-@i">Wait</span>
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="no-number">
-                            <div class="empty-row">&#8593;</div>
-                            <div class="no mb-1"></div>
-                            @for (int i = 21; i <= 40; i++)
-                            {
-                                <div class="stt">@i</div>
-                            }
-                        </div>
-                    </div>
-                </div>
-
-                <div class="previous-tray">
-                    <h3 id="title-previous-tray">Previous</h3>
-
-                    <div class="d-flex check-item">
-                        <div class="no-number">
-                            <div class="empty-row">&#8593;</div>
-                            <div class="no mb-1"></div>
-                            @for (int i = 1; i <= 20; i++)
-                            {
-                                <div class="stt">@i</div>
-                            }
-                        </div>
-
-                        <div class="is-check-tray checking-tray-left">
-                            <div class="title-cam text-center">Left</div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="type-camera">Area cam 1</div>
-                                <div class="type-camera">Line cam 2</div>
-                            </div>
-
-                            <div class="ng-ok">
-                                <div class="d-flex justify-content-center">
-                                    <div class="d-flex flex-column left-tray" style="flex-basis: 49%">
-                                        @for (int i = 1; i <= 20; i++)
-                                        {
-                                            <span class="wait">
-                                                Wait
-                                            </span>
-                                        }
-                                    </div>
-                                    <div class="d-flex flex-column right-tray" style="flex-basis: 49%">
-                                        @for (int i = 1; i <= 20; i++)
-                                        {
-                                            <span class="wait">
-                                                Wait
-                                            </span>
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="is-check-tray checking-tray-right">
-                            <div class="title-cam text-center">Right</div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="type-camera">Area cam 3</div>
-                                <div class="type-camera">Line cam 4</div>
-                            </div>
-                            <div class="ng-ok">
-                                <div class="d-flex justify-content-center">
-                                    <div class="d-flex flex-column left-tray" style="flex-basis: 49%">
-                                        @for (int i = 1; i <= 20; i++)
-                                        {
-                                            <span class="wait">Wait</span>
-                                        }
-                                    </div>
-                                    <div class="d-flex flex-column right-tray" style="flex-basis: 49%">
-                                        @for (int i = 1; i <= 20; i++)
-                                        {
-                                            <span class="wait">Wait</span>
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="no-number">
-                            <div class="empty-row">&#8593;</div>
-                            <div class="no mb-1"></div>
-                            @for (int i = 21; i <= 40; i++)
-                            {
-                                <div class="stt">@i</div>
-                            }
-                        </div>
-                    </div>
-                </div>
+            <div class="plc-status mb-2">
+                <span id="label-plc-status">PLC Connect Status:</span>
+                <span id="value-plc-status">Start</span>
             </div>
         </div>
 
-        <div id="overview">
-            <div class="wrap-overview">
-                <h3 id="title-overview">Overview</h3>
-                <div class="counting-status d-flex justify-content-between">
-                    <div class="counting bg-white">
-                        <div class="first-row d-flex align-items-center justify-content-between">
-                            <div class="lbl-counting">Counting</div>
-                            <div class="lbl-tray-total">
-                                Tray Total
-                            </div>
-                            <div class="lbl-number" id="total-tray-ea">
-                                @(ViewBag.TotalTray.ToString("#,##0").Replace(",", "."))
-                            </div>
+        <div class="d-flex">
+            <div class="d-flex flex-column" style="flex-basis: 50%">
+                <div class="d-flex" style="margin-bottom: 10px;">
+                    <div id="machine-1">
+                        <div class="d-flex info">
+                            <span class="" id="name-machine-1">Machine 1</span>
+                            <span class="" id="status-connect-machine-1">
+                                <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                                Connect
+                            </span>
                         </div>
-
-                        <div class="second-row d-flex align-items-center justify-content-between mb-1">
-                            <div class="title">Total</div>
-                            <div class="w-100 total" id="total-ea">
-                                @(ViewBag.Total.ToString("#,##0").Replace(",", "."))<span class="">&nbspEA</span>
-                            </div>
-                        </div>
-
-                        <div class="third-row d-flex align-items-center justify-content-between mb-1">
-                            <div class="title">OK</div>
-                            <div class="w-100 total">
-                                <div class="d-inline-block" id="total-ok-ea">
-                                    @ViewBag.TotalOK.ToString("#,##0").Replace(",", ".")<span>&nbspEA</span>
-                                </div>
-                                <span class="percent" id="percent-ok">@ViewBag.PercentChartOK %</span>
-                            </div>
-                        </div>
-
-                        <div class="fourth-row d-flex align-items-center justify-content-between mb-1">
-                            <div class="title">NG</div>
-                            <div class="w-100 total">
-                                <div class="d-inline-block" id="total-ng-ea">
-                                    @ViewBag.TotalNG.ToString("#,##0").Replace(",", ".")<span>&nbspEA</span>
-                                </div>
-                                <span class="percent" id="percent-ng">@ViewBag.PercentChartNG %</span>
-                            </div>
-                        </div>
-
-                        <div class="fifth-row d-flex align-items-center justify-content-between mb-1">
-                            <div class="title">Empty</div>
-                            <div class="w-100 total">
-                                <div class="d-inline-block" id="total-empty-ea">
-                                    @ViewBag.TotalEmpty.ToString("#,##0").Replace(",", ".")<span>&nbspEA</span>
-                                </div>
-                                <span class="percent" id="percent-empty">@ViewBag.PercentChartEmpty %</span>
-                            </div>
+                        <h3>5.872</h3>
+                        <span class="label-note">Inspection Quantity Total</span>
+                        <div>
+                            <canvas id="chart-machine-1" width="335" height="250"></canvas>
                         </div>
                     </div>
-
-                    <div id="io-status" class="bg-white">
-                        <div class="mt-1">
-                            <div id="title-io-status" class="mb-2">IO Status</div>
-                            @for (int i = 1; i <= 4; i++)
-                            {
-                                <div class="mb-2">
-                                    <label class="label-title">PC@{@i}-Area Camera:</label>
-
-                                    <span class="mx-4">
-                                        <div class="dot-connect-@i div-status"></div>
-                                        <label>Connect</label>
-                                    </span>
-                                    <span class="mx-5">
-                                        <div class="dot-cam-@i div-status"></div>
-                                        <label>CAM</label>
-                                    </span>
-
-                                    <span class="mx-4">
-                                        <div class="dot-deep-core-@i div-status"></div>
-                                        <label>Deep Learning</label>
-                                    </span>
-                                </div>
-                            }
-
-                            <div class="wr-system-status mb-2 mt-3">
-                                <span id="label-system-status">System status:</span>
-                                <span id="value-system-status">Pause</span>
-                                <span id="error-system-status" class="d-none"></span>
-                            </div>
-
-                            <div class="plc-status mb-2">
-                                <span id="label-plc-status">PLC connect status:</span>
-                                <span id="value-plc-status">Disconnect</span>
-                                <span id="error-plc-status" class="d-none">The door is opened</span>
-                            </div>
+                    <div id="machine-2">
+                        <div class="d-flex info">
+                            <span class="" id="name-machine-2">Machine 1</span>
+                            <span class="" id="status-connect-machine-2">
+                                <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                                Connect
+                            </span>
                         </div>
+                        <h3>5.770</h3>
+                        <span class="label-note">Inspection Quantity Total</span>
+                        <div>
+                            <canvas id="chart-machine-2" width="335" height="250"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column" id="error-detect">
+                    <div>
+                        <h3>Error detect</h3>
+                        <span>Total <b>30</b> detect</span>
+                    </div>
+                    <div>
+                        <canvas id="chart-error-detect" style="width: 335px;"></canvas>
                     </div>
                 </div>
             </div>
 
-            <div class="statistical-chart mt-4 d-flex justify-content-center">
-                <div class="total-error">
+            <div class="d-flex flex-column" style="flex-basis: 50%">
+                <div id="yield-today">
+                    <h3>Yield Total</h3>
+                    <span>In the last 7 days</span>
+                    <div>
+                        <canvas id="chart-yield-today" width="302" height="250" style="height: 302px;"></canvas>
+                    </div>
                 </div>
-
-                <div class="chart">
-                    <canvas id="pie-chart" width="300" height="300"></canvas>
+                <div id="defect-rate">
+                    <h3>Defect Rate</h3>
+                    <span>In the last 7 days</span>
+                    <div>
+                        <canvas id="chart-defect-rate" style="height: 320px !important;"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="log-inspection" class="d-flex justify-content-between">
-        <div id="result-log">
-            <h3 class="genera-title">Result Log</h3>
-            <table class="ea_table">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Model</th>
-                        <th>Tray Number</th>
-                        <th>Side</th>
-                        <th>No</th>
-                        <th>Camera</th>
-                        <th>Result</th>
-                        <th>Error Detection</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="result-log-no-data">
-                        <td colspan="12" class="w-100 text-lg-center text-dark fw-bold mt-1" style="font-size: 14px;">No data</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="log">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h3 id="title-log">
+                    Raw data
+                </h3>
+                <span style="color: #71717A;font-size: 15px;" class="d-block mt-1">Data is being statistically processed</span>
+            </div>
+            <div>
+                <a href="" style="color: #237BFE;text-decoration: none;">Export Data &nbsp ></a>
+            </div>
         </div>
-        <div id="time-log">
-            <h3 class="genera-title">Time Log</h3>
-            <table class="ea_table tbl-time-log">
+
+        <div class="d-flex title-machine" style="margin: 10px 0px;">
+            <h3 style="margin-right: 25rem">Machine</h3>
+            <h3 style="margin-right: 31rem">Machine 1</h3>
+            <h3>Machine 2</h3>
+        </div>
+        <div class="d-flex align-items-center title-percent-machine">
+            <h4 style="margin-right: 15em;">Index</h4>
+
+            <h5 class="mc1" style="margin-right: 90px;">Insp. Qty (EA)</h5>
+            <h5 class="mc1" style="margin-right: 90px;">Fail Qty (EA)</h5>
+            <h5 class="mc1" style="margin-right: 8em;">Fail Rate (%)</h5>
+
+            <h5 class="mc2" style="margin-right: 90px;">Insp. Qty (EA)</h5>
+            <h5 class="mc2" style="margin-right: 90px;">Fail Qty (EA)</h5>
+            <h5 class="mc2">Fail Rate (%)</h5>
+        </div>
+
+        <div>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th class="max-w90">Time</th>
-                        <th class="max-w105">Type</th>
-                        <th>Message</th>
+                        <th scope="col" style="width: 18em">Total</th>
+                        <th scope="col" style="width: 13em">150,000</th>
+                        <th scope="col" style="width: 12em">5000</th>
+                        <th scope="col" style="width: 13em">3.2</th>
+                        <th scope="col" style="width: 12em">150,000</th>
+                        <th scope="col" style="width: 12em">5000</th>
+                        <th scope="col">3.2</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="time-log-no-data">
-                        <td colspan="12" class="w-100 text-lg-center text-dark fw-bold mt-1" style="font-size: 14px;">No data</td>
-                    </tr>
+                    @for (var i = 1; i <= 4; i++)
+                    {
+                        <tr>
+                            <td>May 09, 2024</td>
+                            <td>7,000</td>
+                            <td>200</td>
+                            <td>3.5</td>
+                            <td>9,000</td>
+                            <td>35</td>
+                            <td>4.2</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

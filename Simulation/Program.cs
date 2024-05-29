@@ -1,9 +1,6 @@
 using log4net.Config;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Stiffiner_Inspection.Contexts;
 using Stiffiner_Inspection.Hubs;
-using Stiffiner_Inspection.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,14 +12,14 @@ builder.Logging.AddEventLog();
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("StiffinerInspectionContext"), sqlServerOptionsAction =>
-    {
-        sqlServerOptionsAction.EnableRetryOnFailure();
-    })
-);
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("StiffinerInspectionContext"), sqlServerOptionsAction =>
+//    {
+//        sqlServerOptionsAction.EnableRetryOnFailure();
+//    })
+//);
 
-builder.Services.AddScoped<DataService>();
+//builder.Services.AddScoped<DataService>();
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -55,7 +52,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 app.MapHub<HomeHub>("/homeHub");
-app.MapHub<HistoryHub>("/historyHub");
 
 
 app.MapControllerRoute(

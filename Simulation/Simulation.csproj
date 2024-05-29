@@ -29,6 +29,8 @@
 
 	<ItemGroup>
 		<Folder Include="Migrations\" />
+		<Folder Include="Models\DTO\Data\" />
+		<Folder Include="Models\Entity\" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -49,112 +49,112 @@ namespace Stiffiner_Inspection
         {
             if (_plc.Open() == 0)
             {
-                Thread thread = new Thread(ReadDataFromRegister);
-                thread.IsBackground = true;
-                thread.Name = "REG_PLC_STATUS";
-                thread.Start();
+                //Thread thread = new Thread(ReadDataFromRegister);
+                //thread.IsBackground = true;
+                //thread.Name = "REG_PLC_STATUS";
+                //thread.Start();
 
-                Thread thread1 = new Thread(ReadEventStartFromPLC);
-                thread1.IsBackground = true;
-                thread1.Name = "ReadEventStartFromPLC";
-                thread1.Start();
+                //Thread thread1 = new Thread(ReadEventStartFromPLC);
+                //thread1.IsBackground = true;
+                //thread1.Name = "ReadEventStartFromPLC";
+                //thread1.Start();
             }
             else
             {
-                _logger.Error("Can not connect to PLC");
+                //_logger.Error("Can not connect to PLC");
             }
         }
 
-        private void ReadDataFromRegister()
-        {
-            while (!isExist)
-            {
-                int valueReaded = 0;
-                _plc.ReadDeviceBlock(REG_PLC_Read_STATUS, 1, out valueReaded);
-                SetStatusOfMachine(valueReaded);
-                Global.valuePLC = valueReaded;
-                Thread.Sleep(timeSleep);
-            }
-        }
+        //private void ReadDataFromRegister()
+        //{
+        //    while (!isExist)
+        //    {
+        //        int valueReaded = 0;
+        //        _plc.ReadDeviceBlock(REG_PLC_Read_STATUS, 1, out valueReaded);
+        //        SetStatusOfMachine(valueReaded);
+        //        Global.valuePLC = valueReaded;
+        //        Thread.Sleep(timeSleep);
+        //    }
+        //}
 
-        private void ReadEventStartFromPLC()
-        {
-            while (!isExist)
-            {
-                int valueReaded = 0;
-                _plc.GetDevice(REG_PLC_RefeshData, out valueReaded);
+        //private void ReadEventStartFromPLC()
+        //{
+        //    while (!isExist)
+        //    {
+        //        int valueReaded = 0;
+        //        _plc.GetDevice(REG_PLC_RefeshData, out valueReaded);
 
-                if (valueReaded == 0) isStartHistory = false;
-                //kiem tra neu start nhan thi gui cho clent tin hieu star de clear tray
-                if (!isStartHistory && valueReaded == 1)
-                {
-                    Global.resetPLC1 = 1;
-                    Global.resetPLC2 = 1;
-                    Global.resetPLC3 = 1;
-                    Global.resetPLC4 = 1;
-                    Global.resetClient = 1;
-                    Global.currentTray++;
+        //        if (valueReaded == 0) isStartHistory = false;
+        //        //kiem tra neu start nhan thi gui cho clent tin hieu star de clear tray
+        //        if (!isStartHistory && valueReaded == 1)
+        //        {
+        //            Global.resetPLC1 = 1;
+        //            Global.resetPLC2 = 1;
+        //            Global.resetPLC3 = 1;
+        //            Global.resetPLC4 = 1;
+        //            Global.resetClient = 1;
+        //            Global.currentTray++;
 
-                    Global.CurrentTrayDataV2.Clear();
+        //            Global.CurrentTrayDataV2.Clear();
 
-                    TurnOnLightControl();
-                    isStartHistory = true;
-                }
-                else
-                {
-                    Global.resetClient = 0;
-                }
+        //            TurnOnLightControl();
+        //            isStartHistory = true;
+        //        }
+        //        else
+        //        {
+        //            Global.resetClient = 0;
+        //        }
 
-                // Check End Insection signal
-                int valueReadedEndInspection = 0;
-                _plc.GetDevice(REG_PLC_EndInspection, out valueReadedEndInspection);
-                if (valueReadedEndInspection == 0) isEndHistory = false;
+        //        // Check End Insection signal
+        //        int valueReadedEndInspection = 0;
+        //        _plc.GetDevice(REG_PLC_EndInspection, out valueReadedEndInspection);
+        //        if (valueReadedEndInspection == 0) isEndHistory = false;
 
-                if (!isEndHistory && valueReadedEndInspection == 1)
-                {
-                    isEndHistory = true;
-                    TurnOffLightControl();
+        //        if (!isEndHistory && valueReadedEndInspection == 1)
+        //        {
+        //            isEndHistory = true;
+        //            TurnOffLightControl();
 
-                    if (timer != null)
-                    {
-                        timer.Stop();
-                        timer.Dispose();
-                        timer = null;
-                    }
+        //            if (timer != null)
+        //            {
+        //                timer.Stop();
+        //                timer.Dispose();
+        //                timer = null;
+        //            }
 
-                    //check if after 5s, tray not enough will send signal to PLC vision not enough tray
-                    timer = new System.Timers.Timer(5000);
-                    timer.Elapsed += TimerCheckVisionEnoughTray;
-                    timer.Start();
-                }
+        //            //check if after 5s, tray not enough will send signal to PLC vision not enough tray
+        //            timer = new System.Timers.Timer(5000);
+        //            timer.Elapsed += TimerCheckVisionEnoughTray;
+        //            timer.Start();
+        //        }
 
-                if (valueReadedEndInspection != 1)
-                {
-                    timer?.Stop();
-                    timer?.Dispose();
-                    timer = null;
-                }
+        //        if (valueReadedEndInspection != 1)
+        //        {
+        //            timer?.Stop();
+        //            timer?.Dispose();
+        //            timer = null;
+        //        }
 
-                Thread.Sleep(timeSleep);
-            }
-        }
+        //        Thread.Sleep(timeSleep);
+        //    }
+        //}
 
-        public void TimerCheckVisionEnoughTray(object sender, ElapsedEventArgs e)
-        {
-            timer?.Stop();
-            timer?.Dispose();
-            timer = null;
+        //public void TimerCheckVisionEnoughTray(object sender, ElapsedEventArgs e)
+        //{
+        //    timer?.Stop();
+        //    timer?.Dispose();
+        //    timer = null;
 
-            if (Global.CurrentTrayDataV2.Count < 80 && Global.CurrentTrayDataV2.Count > 0)
-            {
-                if (Global.currentTray > 0)
-                {
-                    Global.currentTray -= 1;
-                }
+        //    if (Global.CurrentTrayDataV2.Count < 80 && Global.CurrentTrayDataV2.Count > 0)
+        //    {
+        //        if (Global.currentTray > 0)
+        //        {
+        //            Global.currentTray -= 1;
+        //        }
 
-                VisionNotEnoughTray();
-            }
-        }
+        //        VisionNotEnoughTray();
+        //    }
+        //}
 
         private void SetStatusOfMachine(int binary)
         {
