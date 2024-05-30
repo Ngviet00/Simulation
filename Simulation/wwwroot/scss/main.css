@@ -167,7 +167,7 @@
   border-radius: 3px;
 }
 .wrap-content .log #title-log {
-  color: black;
+  color: #4c72ee;
   font-weight: 700;
   font-size: 18px;
 }
@@ -183,4 +183,5 @@
 }
 .wrap-content .log table th, .wrap-content .log table td {
   padding-left: 0;
+  border: 1px solid #e3e3e3;
 }

@@ -75,59 +75,46 @@
     </div>
 
     <div class="log">
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center" style="margin: 7px 0px;">
             <div>
                 <h3 id="title-log">
-                    Raw data
+                    Result log
                 </h3>
             </div>
             <div>
-                <a href="" style="color: #237BFE;text-decoration: none;">Export Data &nbsp ></a>
+                <label for="filter-result" style="display: inline-block;margin-right: 5px;font-size: 18px;font-weight:700">Filter by result</label>
+                <select id="filter-result" style="font-size: 20px;width: 9em;">
+                    <option>All</option>
+                    <option>OK</option>
+                    <option>NG</option>
+                </select>
             </div>
         </div>
 
-        <div class="d-flex title-machine" style="margin: 5px 0px;">
-            <h3 style="margin-right: 25rem">Machine</h3>
-            <h3 style="margin-right: 31rem">Machine 1</h3>
-            <h3>Machine 2</h3>
-        </div>
-        <div class="d-flex align-items-center title-percent-machine">
-            <h4 style="margin-right: 15em;">Index</h4>
-
-            <h5 class="mc1" style="margin-right: 90px;">Insp. Qty (EA)</h5>
-            <h5 class="mc1" style="margin-right: 90px;">Fail Qty (EA)</h5>
-            <h5 class="mc1" style="margin-right: 8em;">Fail Rate (%)</h5>
-
-            <h5 class="mc2" style="margin-right: 90px;">Insp. Qty (EA)</h5>
-            <h5 class="mc2" style="margin-right: 90px;">Fail Qty (EA)</h5>
-            <h5 class="mc2">Fail Rate (%)</h5>
-        </div>
-
         <div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" style="width: 18em">Total</th>
-                        <th scope="col" style="width: 13em">150,000</th>
-                        <th scope="col" style="width: 12em">5000</th>
-                        <th scope="col" style="width: 13em">3.2</th>
-                        <th scope="col" style="width: 12em">150,000</th>
-                        <th scope="col" style="width: 12em">5000</th>
-                        <th scope="col">3.2</th>
-
+            <table class="table table-bordered">
+                <thead style="background: #D9E2FF;margin-top: 4px">
+                    <tr style="font-weight: bold;text-align: center">
+                        <th scope="col" style="padding-left: 2px;">No</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Machine</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Module</th>
+                        <th scope="col">Result</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @for (var i = 1; i <= 4; i++)
+                    @for(var i = 1; i <= 5; i++)
                     {
-                        <tr>
-                            <td>May 09, 2024</td>
-                            <td>7,000</td>
-                            <td>200</td>
-                            <td>3.5</td>
-                            <td>9,000</td>
-                            <td>35</td>
-                            <td>4.2</td>
+                        <tr class="text-center">
+                            <th scope="row">@i</th>
+                            <td>2024/12/11</td>
+                            <td>13:49:11</td>
+                            <td>@(i % 2 == 0 ? "WLC" : "DMC")</td>
+                            <td>953_PSA_Side</td>
+                            <td>01</td>
+                            <td class="@(i % 2 == 0 ? "text-danger" : "text-success")" style="font-weight: 700">@(i % 2 == 0 ? "NG" : "OK")</td>
                         </tr>
                     }
                 </tbody>

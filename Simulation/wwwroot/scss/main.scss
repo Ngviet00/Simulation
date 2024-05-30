@@ -208,7 +208,7 @@ $color_3C3C3C: #3C3C3C;
         border-radius: 3px;
 
         #title-log {
-            color: black;
+            color: #4c72ee;
             font-weight: 700;
             font-size: 18px;
         }
@@ -236,6 +236,7 @@ $color_3C3C3C: #3C3C3C;
         table {
             th, td {
                 padding-left: 0;
+                border: 1px solid #e3e3e3;
             }
         }
     }
