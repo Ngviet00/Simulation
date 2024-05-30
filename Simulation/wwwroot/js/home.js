@@ -44,12 +44,12 @@ $(function () {
                         const percentageValue = (value / totalValue * 100).toFixed(2);
                         return `${percentageValue}%`;
                     },
-                    color: '#ffffff',
+                    color: '#000000',
                     font: {
                         weight: 'bold',
-                        size: 15,
+                        size: 13,
                     },
-                    align: 'end',
+                    align: 'center',
                     anchor: 'center'
                 }
             }
@@ -91,12 +91,12 @@ $(function () {
                         const percentageValue = (value / totalValue * 100).toFixed(2);
                         return `${percentageValue}%`;
                     },
-                    color: '#ffffff',
+                    color: '#000000',
                     font: {
                         weight: 'bold',
-                        size: 15,
+                        size: 13,
                     },
-                    align: 'end',
+                    align: 'center',
                     anchor: 'center'
                 }
             }
@@ -216,7 +216,7 @@ $(function () {
                     color: '#000000',
                     font: {
                         weight: 'bold',
-                        size: 15,
+                        size: 11,
                     },
                     align: 'center',
                     anchor: 'center'
